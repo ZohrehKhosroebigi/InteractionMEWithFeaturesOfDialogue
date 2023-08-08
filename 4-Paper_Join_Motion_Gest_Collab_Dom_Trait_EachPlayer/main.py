@@ -1,6 +1,5 @@
-#THIS CODE ADD COLLABORATION TO RATIO PER SESSION AND RATIOS ARE PER FRAME
-#check konam output dorost bashe
-
+#THIS CODE ADD COLLABORATION, DOMINANCE, AND TRAITS TO ME MORMED
+#must check the output using R and uploading R code in github
 import Importing_all_files_in_list_1
 import Check_existed_folder_to_create_2
 import CSV_DF_reader
@@ -14,15 +13,15 @@ finaloutputfoler = Check_existed_folder_to_create_2.createfolder ()
 finaloutputfoler.createfolder (output_folderCSV)
 ############################################################
 input_file_motion = "iCSV_Output_Gesture_Frame_Timestampe"
-output_merged_gest="MergeGest"
+output_merged_gest="BigAggregatedGest.csv"
 finaloutputfoler = Check_existed_folder_to_create_2.createfolder ()
 finaloutputfoler.createfolder (output_folderCSV)
 output_file_merged_gest=output_merged_gest+"/MergeGest.csv"
 
-merg_gestf=MergGestFiles.MergGestFiles()
+merg_gestf=MergGestFiles.MergGestFiles()#AGGREGATE ALL GEST FILES
 merg_gestf.mergGestFiles(input_file_motion,output_merged_gest)
 
-#IMPORTING ALL gest FILES
+#IMPORTING THE BIG GEST FILE
 csvdfreader = CSV_DF_reader.CSVDFReader ()
 df_gest=csvdfreader.csvdfReader (output_merged_gest)
 ############################################################
@@ -41,7 +40,7 @@ df_collab=csvdfreader.csvdfReader (input_file_collab)
 ######################
 #reading Dominance score
 input_file_dominance = "Dominance/MedianDomScoreEachPlayer.csv"
-#IMPORTING ALL Collaboration FILES
+#IMPORTING ALL DOMINANCE FILES
 csvdfreader = CSV_DF_reader.CSVDFReader ()
 df_dom=csvdfreader.csvdfReader (input_file_dominance)
 ######################
@@ -61,14 +60,9 @@ for file in lst_files_motion_norm:
                                                        how='left')  # add dominance to each session
     print()
 ########################################################
-
-
     df_aggr_gest_motion = temp_df_aggregated_3.merge (df_gest[['ID', "Frame","Gesture"]], on=["ID","Frame"], how='left')  # add dominance to each session
 
-
-
     dftocsv = DFToCSV.DfToCSV ()
-
     dftocsv.dfToCSV (df_aggr_gest_motion, output_file)
 
 #

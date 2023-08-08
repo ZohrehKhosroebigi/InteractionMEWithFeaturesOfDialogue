@@ -1,6 +1,5 @@
-#THIS CODE MERGE MOTION ENERGY OF PLAYERS AS A BIG FILE
+#THIS CODE MERGE GESTURES FILES OF PLAYERS AS A BIG FILE
 import Importing_all_files_in_list_1
-import Check_existed_folder_to_create_2
 import CSVwriter
 import CSVreader
 class MergGestFiles():
