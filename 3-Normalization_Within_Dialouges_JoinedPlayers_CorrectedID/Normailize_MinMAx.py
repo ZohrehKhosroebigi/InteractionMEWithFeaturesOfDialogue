@@ -1,6 +1,5 @@
-import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
-# this class takes list of dict of player motion and create a dict for each palyer motion
+
 class MinMax():
 
     def minMax(self,df_file,header):

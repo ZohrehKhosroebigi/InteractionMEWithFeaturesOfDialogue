@@ -1,0 +1,19 @@
+﻿Session,Annotator1,Annotator2,Annotator1,Annotator2,MedianCollaboration,Anotator1-median,Anotator2-median,sigma,Deltai,Delta (likert points disaggrement),Collab_Level_Median
+S02,4,3,very high collaboration,high collaboration,3.5,0.5,0.5,1,0.5,0.222222222,high collaboration
+S03,3,4,high collaboration,very high collaboration,3.5,0.5,0.5,1,0.5,0.222222222,high collaboration
+S04,1,2,low collaboration,moderate collaboration,1.5,0.5,0.5,1,0.5,0.222222222,low collaboration
+S05,2,2,moderate collaboration,moderate collaboration,2,0,0,0,0,0.222222222,moderate collaboration
+S07,3,2,high collaboration,moderate collaboration,2.5,0.5,0.5,1,0.5,0.222222222,moderate collaboration
+S08,2,3,moderate collaboration,high collaboration,2.5,0.5,0.5,1,0.5,0.222222222,moderate collaboration
+S09,4,4,very high collaboration,very high collaboration,4,0,0,0,0,0.222222222,very high collaboration
+S10,3,3,high collaboration,high collaboration,3,0,0,0,0,0.222222222,high collaboration
+S11,1,1,low collaboration,low collaboration,1,0,0,0,0,0.222222222,low collaboration
+S13,1,2,low collaboration,moderate collaboration,1.5,0.5,0.5,1,0.5,0.222222222,low collaboration
+S14,4,4,very high collaboration,very high collaboration,4,0,0,0,0,0.222222222,very high collaboration
+S17,3,3,high collaboration,high collaboration,3,0,0,0,0,0.222222222,high collaboration
+S18,1,2,low collaboration,moderate collaboration,1.5,0.5,0.5,1,0.5,0.222222222,low collaboration
+S19,2,3,moderate collaboration,high collaboration,2.5,0.5,0.5,1,0.5,0.222222222,moderate collaboration
+S20,4,4,very high collaboration,very high collaboration,4,0,0,0,0,0.222222222,very high collaboration
+S21,2,2,moderate collaboration,moderate collaboration,2,0,0,0,0,0.222222222,moderate collaboration
+S22,3,3,high collaboration,high collaboration,3,0,0,0,0,0.222222222,high collaboration
+S23,3,3,high collaboration,high collaboration,3,0,0,0,0,0.222222222,high collaboration

@@ -1,5 +1,6 @@
 
-
+#THIS CODE IS NORMALIZATION USING MINMAX. NORMALIZATION IS ACROSS ALL SESSIONS.
+#IT MEANS ME OF ALL PLAYERS ARE AGGREGATED. THEN MINMAX IS COMPUTED
 import CSV_DF_reader
 import Importing_all_files_in_list_1
 import Check_existed_folder_to_create_2
@@ -34,7 +35,6 @@ for i in range(len(lst_files)):
     lst_dfs_each_ply.append("df_left_"+str(i))
     lst_dfs_each_ply.append ("df_right_" + str (i))
 #creat a dict of df
-
 dict_df = {}
 for i in lst_dfs_each_ply:
     dict_df[i] = pd.DataFrame ()
@@ -54,7 +54,7 @@ for fileidx in range (len(lst_files)):
     csvdfreader.csvdfReader(lst_files[fileidx])
 
     ##########
-
+#ADDING VALUES TO EACH KEY OF DICT. IT CREATS TWO DICT OF CO-PLAYERS INFO
     dict_df["df_left_"+str(fileidx)]["Session"]=csvdfreader.df_motion["Session"]
     dict_df["df_left_"+str(fileidx)]["Frame"]=csvdfreader.df_motion["Frame"]
     dict_df["df_left_"+str(fileidx)]["PlayerMotion"]=csvdfreader.df_motion["LeftPlayerMotion"]
@@ -66,7 +66,7 @@ for fileidx in range (len(lst_files)):
 
     print()
 
-
+#CONCAT DF OF COPLAYERS TO HAVE AN AGGREGATED ONE.
 df_all_players = pd.concat(dict_df.values(), join='inner', keys=dict_df.keys(), axis=0,ignore_index=True)
 
 #calling normalization class min max
