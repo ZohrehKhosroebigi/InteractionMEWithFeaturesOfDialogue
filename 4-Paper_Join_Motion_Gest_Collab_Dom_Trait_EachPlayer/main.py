@@ -46,7 +46,12 @@ input_file_dominance = "Dominance/MedianDomScoreEachPlayer.csv"
 csvdfreader = CSV_DF_reader.CSVDFReader ()
 df_dom=csvdfreader.csvdfReader (input_file_dominance)
 ######################
-
+#reading Traits score
+input_file_trait = "BFI-44/BFI-44.csv"
+#IMPORTING ALL Traits FILE
+csvdfreader = CSV_DF_reader.CSVDFReader ()
+df_trait=csvdfreader.csvdfReader (input_file_trait)
+######################
 #######################
 for file in lst_files_motion_norm:
     # READING motion FILE
@@ -54,18 +59,13 @@ for file in lst_files_motion_norm:
     df_norm = csvdfreader.csvdfReader (file)
     ######## adding bfi features
     # Merge 'df1' with 'df2' based on the common key 'Key_Column'
-    temp_df_aggregated_1 = df_norm.merge (df_collab[['Session', 'MedianCollaboration']], on='Session',
+    temp_df_aggregated_1 = df_norm.merge (df_collab[['Session', 'CollabMedian','Deltai']], on='Session',
                                           how='left')  # add collab to each session
-    temp_df_aggregated_2 = temp_df_aggregated_1.merge (df_collab[['Session', 'Deltai']], on='Session',
-                                                  how='left')  # add deltai to each session
-    temp_df_aggregated_3 = temp_df_aggregated_2.merge (df_dom[['ID', 'MedianDomScore']], on='ID',
-                                                       how='left')  # add dominance to each session
-    print()
-########################################################
-    df_aggr_gest_motion = temp_df_aggregated_3.merge (df_gest[['ID', "Frame","Gesture"]], on=["ID","Frame"], how='left')  # add dominance to each session
 
+    temp_df_aggregated_3 = temp_df_aggregated_1.merge (df_dom[['ID', 'MedianDom']], on='ID',
+                                                       how='left')  # add dominance to each session
+########################################################
+    temp_df_aggregated_4= temp_df_aggregated_3.merge (df_trait[['ID',"EXTROVERSION_raw_score","AGREEABLENESS_raw_score","CONSCIENTIOUSNESS_raw_score","NEUROTICISM_raw_score","OPENNESS_raw_score"]], on=["ID"], how='left')  # add dominance to each session
 
     dftocsv = DFToCSV.DfToCSV ()
-    dftocsv.dfToCSV (df_aggr_gest_motion, output_file)
-
-#
+    dftocsv.dfToCSV (temp_df_aggregated_4, output_file)

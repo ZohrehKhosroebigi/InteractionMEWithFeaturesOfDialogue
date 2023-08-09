@@ -1,4 +1,4 @@
-﻿Session,Annotator1,Annotator2,Annotator1,Annotator2,MedianCollaboration,Anotator1-median,Anotator2-median,sigma,Deltai,Delta (likert points disaggrement),Collab_Level_Median
+﻿Session,Annotator1,Annotator2,Annotator1,Annotator2,CollabMedian,Anotator1-median,Anotator2-median,sigma,Deltai,Delta (likert points disaggrement),Collab_Level_Median
 S02,4,3,very high collaboration,high collaboration,3.5,0.5,0.5,1,0.5,0.222222222,high collaboration
 S03,3,4,high collaboration,very high collaboration,3.5,0.5,0.5,1,0.5,0.222222222,high collaboration
 S04,1,2,low collaboration,moderate collaboration,1.5,0.5,0.5,1,0.5,0.222222222,low collaboration
