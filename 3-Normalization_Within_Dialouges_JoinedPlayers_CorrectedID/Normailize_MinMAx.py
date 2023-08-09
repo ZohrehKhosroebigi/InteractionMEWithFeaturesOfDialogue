@@ -8,6 +8,6 @@ class MinMax():
         scaler = MinMaxScaler ()
         # fit and transform the data.
         self.df_norm[[header]] = scaler.fit_transform (self.df_norm[[header]])
-
+        self.df_norm[[header]]=self.df_norm[[header]].round(4)
         return self.df_norm
 

@@ -7,8 +7,8 @@ import DFToCSV
 import MergGestFiles
 input_file_norm = "iOutpu_Normalized_MinMax_Motion_Players_CorrectedID_AcrosSessions"
 #Creating output folder
-output_folderCSV = "Output_Join_Ratio_Collab_Per_Session_WithinSession_"
-output_file=output_folderCSV+"/Output_Join_Ratio_Collab_Per_Session_WithinSession.csv"
+output_folderCSV = "Output_Join_Motion_Collab_Dom_Trait_Per_Session_WithinSession_"
+output_file=output_folderCSV+"/Output_Join_Motion_Collab_Dom_Trait_Per_Session_WithinSession_.csv"
 finaloutputfoler = Check_existed_folder_to_create_2.createfolder ()
 finaloutputfoler.createfolder (output_folderCSV)
 ############################################################

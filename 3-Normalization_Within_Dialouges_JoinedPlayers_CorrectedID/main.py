@@ -57,11 +57,11 @@ for fileidx in range (len(lst_files)):
 #ADDING VALUES TO EACH KEY OF DICT. IT CREATS TWO DICT OF CO-PLAYERS INFO
     dict_df["df_left_"+str(fileidx)]["Session"]=csvdfreader.df_motion["Session"]
     dict_df["df_left_"+str(fileidx)]["Frame"]=csvdfreader.df_motion["Frame"]
-    dict_df["df_left_"+str(fileidx)]["PlayerMotion"]=csvdfreader.df_motion["LeftPlayerMotion"]
+    dict_df["df_left_"+str(fileidx)]["MotionEnergy"]=csvdfreader.df_motion["LeftPlayerMotion"]
     dict_df["df_left_"+str(fileidx)]["ID"]=pleft
     dict_df["df_right_" + str (fileidx)]["Session"] = csvdfreader.df_motion["Session"]
     dict_df["df_right_" + str (fileidx)]["Frame"] = csvdfreader.df_motion["Frame"]
-    dict_df["df_right_" + str (fileidx)]["PlayerMotion"] = csvdfreader.df_motion["RightPlayerMotion"]
+    dict_df["df_right_" + str (fileidx)]["MotionEnergy"] = csvdfreader.df_motion["RightPlayerMotion"]
     dict_df["df_right_" + str (fileidx)]["ID"] = pright
 
     print()
@@ -71,7 +71,7 @@ df_all_players = pd.concat(dict_df.values(), join='inner', keys=dict_df.keys(), 
 
 #calling normalization class min max
 dict_norm_minmax= Normailize_MinMAx.MinMax ()
-dict_norm_minmax.minMax(df_all_players,"PlayerMotion")
+dict_norm_minmax.minMax(df_all_players,"MotionEnergy")
 
 dftocsv= DFToCSV.DfToCSV()
 dftocsv.dfToCSV(dict_norm_minmax.df_norm, csvname_ALL)
