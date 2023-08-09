@@ -5,6 +5,7 @@ import Check_existed_folder_to_create_2
 import CSV_DF_reader
 import DFToCSV
 import MergGestFiles
+import pandas as pd
 input_file_norm = "iOutpu_Normalized_MinMax_Motion_Players_CorrectedID_AcrosSessions"
 #Creating output folder
 output_folderCSV = "Output_Join_Motion_Collab_Dom_Trait_Per_Session_WithinSession"
@@ -59,13 +60,20 @@ for file in lst_files_motion_norm:
     df_norm = csvdfreader.csvdfReader (file)
     ######## adding bfi features
     # Merge 'df1' with 'df2' based on the common key 'Key_Column'
+
     temp_df_aggregated_1 = df_norm.merge (df_collab[['Session', 'CollabMedian','Deltai']], on='Session',
                                           how='left')  # add collab to each session
 
-    temp_df_aggregated_3 = temp_df_aggregated_1.merge (df_dom[['ID', 'MedianDom']], on='ID',
+    temp_df_aggregated_2 = temp_df_aggregated_1.merge (df_dom[['ID', 'MedianDom']], on='ID',
                                                        how='left')  # add dominance to each session
 ########################################################
-    temp_df_aggregated_4= temp_df_aggregated_3.merge (df_trait[['ID',"EXTROVERSION_raw_score","AGREEABLENESS_raw_score","CONSCIENTIOUSNESS_raw_score","NEUROTICISM_raw_score","OPENNESS_raw_score"]], on=["ID"], how='left')  # add dominance to each session
+    temp_df_aggregated_1= pd.DataFrame#to save memory and have an empty df
+    temp_df_aggregated_1= temp_df_aggregated_2.merge (df_trait[['ID',"EXTROVERSION_raw_score","AGREEABLENESS_raw_score","CONSCIENTIOUSNESS_raw_score","NEUROTICISM_raw_score","OPENNESS_raw_score"]], on=["ID"], how='left')  # add traits to each session
+
+    temp_df_aggregated_2= pd.DataFrame#to save memory and have an empty df
+    df_aggr_gest_motion_2 = temp_df_aggregated_1.merge (df_gest[['ID', "Frame", "Gesture"]], on=["ID", "Frame"],
+                                                      how='left')  # add dominance to each session
+
 
     dftocsv = DFToCSV.DfToCSV ()
-    dftocsv.dfToCSV (temp_df_aggregated_4, output_file)
+    dftocsv.dfToCSV (df_aggr_gest_motion_2, output_file)
