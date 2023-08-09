@@ -21,6 +21,12 @@ class MergGestFiles():
             csvreader = CSVreader.CSVReader ()
             lst_all_rows_plyr = csvreader.csvReader (file)
 
+            #I REPLACE ALL N/A GEST TO NONAPPLICABLE SINCE DATAFRAME CONSIDER IT AS NAM. I COULD KEEP THEM AS NAN BUT IF SOME VALUE WAS REALY NAN, IT WAS WRTIEN NONAPPLICABLE WRONGLY
+            for item in lst_all_rows_plyr:
+                for key,val in item.items():
+                    if val=="N/A":
+                        item[key]="NonApplicable"
+
             csvwrt = CSVwriter.CSVWriter ()
             csvwrt.csv_wrt(lst_all_rows_plyr, out)
 

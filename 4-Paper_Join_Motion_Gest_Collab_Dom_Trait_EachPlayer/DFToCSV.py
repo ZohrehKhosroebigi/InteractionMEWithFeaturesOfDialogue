@@ -9,8 +9,8 @@ class DfToCSV():
               # Check if the CSV file already exists
         if os.path.exists(filename):
             # Append the DataFrame without the header
-            dataframe.to_csv(filename, mode='a', header=False, index=False,sep=',', encoding='utf-8', columns=column_names)
+            dataframe.to_csv(filename, mode='a', header=False, index=False,sep=',', columns=column_names)
         else:
             # Write the DataFrame with the header
-            dataframe.to_csv(filename, index=False,sep=',', encoding='utf-8', columns=column_names)
+            dataframe.to_csv(filename, index=False,sep=',', columns=column_names)
 

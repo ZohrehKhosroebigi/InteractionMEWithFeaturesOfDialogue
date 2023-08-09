@@ -1,22 +1,13 @@
 import pandas as pd
 
-df = pd.DataFrame ({'Courses': ["Spark", "PySpark", "Python", "pandas", "Java"],
-                    'Fee': [20000, 25000, 30000, 24000, 40000],
-                    'Duration': ['30day', '40days', '60days', '55days', '50days']})
+# Create a sample dataframe
+data = {'Column1': [1, 2, 'N/A', 4, 5],
+        'Column2': ['N/A', 'A', 'B', 'C', 'N/A']}
+df = pd.DataFrame(data)
 
-df1 = pd.DataFrame ({'Courses': ["Java", "PySpark", "Python", "pandas", "Hyperion"],
-                     'Fee': [20000, 25000, 30000, 24000, 40000],
-                     'Percentage': ['10%', '20%', '25%', '20%', '10%']})
+# Replace 'N/A' with NaN
 
-print (df)
-print()
-print (df1)
-print()
+# Alternatively, you can read the data while loading the dataframe
+# df = pd.read_csv('your_data.csv', na_values=['N/A'])
 
-
-# Use pandas.merge() to on multiple columns
-df2 = pd.merge (df, df1, how='left', left_on=['Courses', 'Fee'], right_on=['Courses', 'Fee'])
-print (df2)
-
-
-
+print(df)

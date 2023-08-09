@@ -7,13 +7,15 @@ import DFToCSV
 import MergGestFiles
 input_file_norm = "iOutpu_Normalized_MinMax_Motion_Players_CorrectedID_AcrosSessions"
 #Creating output folder
-output_folderCSV = "Output_Join_Motion_Collab_Dom_Trait_Per_Session_WithinSession_"
-output_file=output_folderCSV+"/Output_Join_Motion_Collab_Dom_Trait_Per_Session_WithinSession_.csv"
+output_folderCSV = "Output_Join_Motion_Collab_Dom_Trait_Per_Session_WithinSession"
+output_file=output_folderCSV+"/Output_Join_Motion_Collab_Dom_Trait_Per_Session_WithinSession.csv"
 finaloutputfoler = Check_existed_folder_to_create_2.createfolder ()
 finaloutputfoler.createfolder (output_folderCSV)
 ############################################################
 input_file_motion = "iCSV_Output_Gesture_Frame_Timestampe"
 output_merged_gest="BigAggregatedGest.csv"
+#####################################
+
 finaloutputfoler = Check_existed_folder_to_create_2.createfolder ()
 finaloutputfoler.createfolder (output_folderCSV)
 output_file_merged_gest=output_merged_gest+"/MergeGest.csv"
@@ -61,6 +63,7 @@ for file in lst_files_motion_norm:
     print()
 ########################################################
     df_aggr_gest_motion = temp_df_aggregated_3.merge (df_gest[['ID', "Frame","Gesture"]], on=["ID","Frame"], how='left')  # add dominance to each session
+
 
     dftocsv = DFToCSV.DfToCSV ()
     dftocsv.dfToCSV (df_aggr_gest_motion, output_file)
